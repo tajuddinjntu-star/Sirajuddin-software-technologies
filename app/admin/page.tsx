@@ -305,7 +305,7 @@ export default async function AdminPage() {
             <table className="table">
               <thead><tr><th>Action</th><th>Entity</th><th>Time</th></tr></thead>
               <tbody>
-                {auditLogs.map((log) => (
+                {auditLogs.map((log: any) => (
                   <tr key={log.id}><td>{log.action}</td><td>{log.entityType}</td><td>{new Date(log.createdAt).toLocaleDateString()}</td></tr>
                 ))}
               </tbody>
