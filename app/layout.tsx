@@ -14,3 +14,10 @@ export default function RootLayout({
     </html>
   );
 }
+<header>
+  <h1>SST</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/admin">Admin</a>
+  </nav>
+</header>
