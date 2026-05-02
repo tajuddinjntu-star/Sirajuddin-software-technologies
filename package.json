@@ -1,54 +1,22 @@
 {
-  "name": "sirajuddin-software-technologies-site",
+  "name": "sirajuddin-software-technologies",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "node prisma/seed.js"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.7.4",
-    "@prisma/client": "^5.22.0",
-    "next": "^15.0.0",
-    "next-auth": "5.0.0-beta.25",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "stripe": "^17.4.0",
-    "zod": "^3.23.8"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "@prisma/client": "latest"
   },
   "devDependencies": {
-    "prisma": "^5.22.0",
-    "typescript": "^5.6.3",
-    "@types/node": "^22.8.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1"
+    "prisma": "latest",
+    "typescript": "latest"
   }
-}
-{
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
 }
