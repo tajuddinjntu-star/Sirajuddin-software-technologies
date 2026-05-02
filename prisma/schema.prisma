@@ -13,7 +13,19 @@ model User {
   role      String   @default("CUSTOMER")
   createdAt DateTime @default(now())
 }
-
+model EmailDispatch {
+  id          String   @id @default(cuid())
+  purchaseId String?
+  invoiceId  String?
+  userId     String?
+  toEmail    String
+  subject    String
+  templateKey String?
+  status     String   @default("QUEUED")
+  errorMessage String?
+  sentAt     DateTime?
+  createdAt  DateTime @default(now())
+}
 model Software {
   id          String   @id @default(cuid())
   name        String
