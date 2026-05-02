@@ -50,6 +50,7 @@ model AuditLog {
   action     String
   entityType String
   entityId   String?
+  meta       String?
   createdAt  DateTime @default(now())
 }
 model DownloadGrant {
