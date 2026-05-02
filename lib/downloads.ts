@@ -62,12 +62,11 @@ export async function consumeDownloadGrant(rawToken: string) {
   ]);
 
   await createAuditLog({
-    userId: grant.purchase.userId,
-    action: 'DOWNLOAD_LINK_USED',
-    entityType: 'Purchase',
-    entityId: grant.purchaseId,
-    meta: { softwareId: grant.purchase.softwareId }
-  });
+  userId: "system",
+  action: "DOWNLOAD_LINK_USED",
+  entityType: "Purchase",
+  entityId: grant.purchaseId,
+});
 
   return { ok: true as const, grant };
 }
