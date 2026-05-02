@@ -134,28 +134,20 @@ model Invoice {
 }
 
 model EmailDispatch {
-  id            String              @id @default(cuid())
-  purchaseId    String?
-  invoiceId     String?
-  userId        String?
-  softwareId    String?
-  toEmail       String
-  subject       String
-  templateKey   String
-  provider      String              @default("preview")
-  status        EmailDispatchStatus @default(PREVIEW)
-  previewText   String?
-  providerId    String?
-  errorMessage  String?
-  sentAt        DateTime?
-  createdAt     DateTime            @default(now())
-  updatedAt     DateTime            @updatedAt
-  purchaseId String?
-  invoiceId string?
-  userId string?
-  software      Software?           @relation(fields: [softwareId], references: [id], onDelete: SetNull)
+  id          String   @id @default(cuid())
+  toEmail     String
+  subject     String
+  template    String
+  provider    String?
+  status      String   @default("PENDING")
+  lastError   String?
+  sentAt      DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  @@index([toEmail, createdAt])
+  purchaseId  String?
+  invoiceId   String?
+  userId      String?
 }
 
 model AuditLog {
