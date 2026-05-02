@@ -22,16 +22,11 @@ export async function createEmailDispatch(input: {
       purchaseId: input.purchaseId,
       invoiceId: input.invoiceId,
       userId: input.userId,
-      softwareId: input.softwareId,
       toEmail: input.toEmail,
       subject: input.subject,
-      templateKey: input.templateKey,
-      previewText: input.previewText,
-      provider: input.provider || 'preview',
-      status: input.status || 'PREVIEW',
-      providerId: input.providerId,
-      errorMessage: input.errorMessage,
-      sentAt: input.sentAt
+      template: input.templateKey,
+      status: "PREVIEW",
+      
     }
   });
 }
