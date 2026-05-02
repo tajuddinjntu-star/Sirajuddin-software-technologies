@@ -13,7 +13,7 @@ model User {
   email         String?         @unique
   emailVerified DateTime?
   image         String?
-  role          Role            @default(CUSTOMER)
+  role          String
   accounts      Account[]
   sessions      Session[]
   purchases     Purchase[]
@@ -32,7 +32,7 @@ model Software {
   longDescription   String
   price             Int
   currency          String            @default("INR")
-  billingType       BillingType       @default(ONE_TIME)
+  billingType       String
   monthlyPrice      Int?
   category          String?
   platform          String?
@@ -41,7 +41,7 @@ model Software {
   downloadUrl       String?
   supportUrl        String?
   licenseEnabled    Boolean           @default(true)
-  deliveryMethod    DeliveryMethod    @default(SECURE_REDIRECT)
+  deliveryMethod    DeliveryMethod    String
   features          SoftwareFeature[]
   purchases         Purchase[]
   invoices          Invoice[]
@@ -65,9 +65,9 @@ model Purchase {
   stripePaymentIntent  String?
   amount               Int
   currency             String
-  status               PurchaseStatus     @default(PENDING)
+  status               String
   licenseKey           String?
-  licenseStatus        LicenseStatus      @default(ACTIVE)
+  licenseStatus        String
   licenseRevokedAt     DateTime?
   licenseRevokedReason String?
   subtotalAmount       Int?
@@ -75,11 +75,11 @@ model Purchase {
   invoiceNumber        String?            @unique
   paidAt               DateTime?
   receiptEmail         String?
-  receiptStatus        ReceiptStatus      @default(PENDING)
+  receiptStatus        ReceiptStatus      String
   receiptPreparedAt    DateTime?
   receiptSentAt        DateTime?
   lastReceiptError     String?
-  invoiceStatus        InvoiceStatus      @default(ISSUED)
+  invoiceStatus        InvoiceStatus     String
   invoiceIssuedAt      DateTime?
   invoiceVoidedAt      DateTime?
   invoiceVoidReason    String?
@@ -104,7 +104,7 @@ model DownloadGrant {
   expiresAt   DateTime
   usedAt      DateTime?
   createdAt   DateTime    @default(now())
-  status      GrantStatus @default(ACTIVE)
+  status      GrantStatus String
   purchase    Purchase    @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
 
   @@index([purchaseId, expiresAt])
@@ -120,7 +120,7 @@ model Invoice {
   subtotalAmount  Int
   taxAmount       Int           @default(0)
   totalAmount     Int
-  status          InvoiceStatus @default(ISSUED)
+  status          InvoiceStatus String
   issuedAt        DateTime      @default(now())
   voidedAt        DateTime?
   voidReason      String?
@@ -197,54 +197,3 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-enum Role {
-  ADMIN
-  CUSTOMER
-}
-
-enum BillingType {
-  ONE_TIME
-  MONTHLY
-}
-
-enum PurchaseStatus {
-  PENDING
-  PAID
-  FAILED
-}
-
-enum LicenseStatus {
-  ACTIVE
-  REVOKED
-}
-
-enum GrantStatus {
-  ACTIVE
-  USED
-  EXPIRED
-  REVOKED
-}
-
-enum DeliveryMethod {
-  SECURE_REDIRECT
-  MANUAL_FULFILLMENT
-}
-
-enum ReceiptStatus {
-  PENDING
-  PREPARED
-  SENT
-  FAILED
-}
-
-enum InvoiceStatus {
-  ISSUED
-  VOID
-}
-
-enum EmailDispatchStatus {
-  PREVIEW
-  QUEUED
-  SENT
-  FAILED
-}
