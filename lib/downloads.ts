@@ -36,7 +36,7 @@ export async function consumeDownloadGrant(rawToken: string) {
   const tokenHash = hashToken(rawToken);
   const now = new Date();
 
-  const grant = await db.downloadGrant.findUnique({
+  const grant = await db.downloadGrant.findFirst({
     where: { tokenHash },
     include: {
       purchase: {
