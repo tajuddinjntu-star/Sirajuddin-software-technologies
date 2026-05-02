@@ -41,7 +41,7 @@ model Software {
   downloadUrl       String?
   supportUrl        String?
   licenseEnabled    Boolean           @default(true)
-  deliveryMethod    DeliveryMethod    String
+  deliveryMethod    String
   features          SoftwareFeature[]
   purchases         Purchase[]
   invoices          Invoice[]
@@ -75,11 +75,11 @@ model Purchase {
   invoiceNumber        String?            @unique
   paidAt               DateTime?
   receiptEmail         String?
-  receiptStatus        ReceiptStatus      String
+  receiptStatus        String
   receiptPreparedAt    DateTime?
   receiptSentAt        DateTime?
   lastReceiptError     String?
-  invoiceStatus        InvoiceStatus     String
+  invoiceStatus        String
   invoiceIssuedAt      DateTime?
   invoiceVoidedAt      DateTime?
   invoiceVoidReason    String?
@@ -104,7 +104,7 @@ model DownloadGrant {
   expiresAt   DateTime
   usedAt      DateTime?
   createdAt   DateTime    @default(now())
-  status      GrantStatus String
+  status      String
   purchase    Purchase    @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
 
   @@index([purchaseId, expiresAt])
@@ -120,7 +120,7 @@ model Invoice {
   subtotalAmount  Int
   taxAmount       Int           @default(0)
   totalAmount     Int
-  status          InvoiceStatus String
+  status          String
   issuedAt        DateTime      @default(now())
   voidedAt        DateTime?
   voidReason      String?
