@@ -45,7 +45,6 @@ model Software {
   features          SoftwareFeature[]
   purchases         Purchase[]
   invoices          Invoice[]
-  emailDispatches   EmailDispatch[]
   createdAt         DateTime          @default(now())
   updatedAt         DateTime          @updatedAt
 }
@@ -92,8 +91,6 @@ model Purchase {
   software             Software           @relation(fields: [softwareId], references: [id], onDelete: Cascade)
   downloadGrants       DownloadGrant[]
   invoice              Invoice?
-  emailDispatches      EmailDispatch[]
-
   @@index([userId, status])
 }
 
