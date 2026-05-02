@@ -22,12 +22,11 @@ export async function issueDownloadGrant(purchaseId: string) {
   });
 
   await createAuditLog({
-    userId: purchase?.userId,
-    action: 'DOWNLOAD_LINK_ISSUED',
-    entityType: 'Purchase',
-    entityId: purchaseId,
-    meta: { softwareId: purchase?.softwareId, expiresAt: expiresAt.toISOString() }
-  });
+  userId: "system",
+  action: "DOWNLOAD_LINK_USED",
+  entityType: "Purchase",
+  entityId: grant.purchaseId,
+});
 
   return rawToken;
 }
