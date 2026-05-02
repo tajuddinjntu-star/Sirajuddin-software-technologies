@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@types/node": "latest",
-    "prisma": "latest",
+    "@types/react": "latest",
     "typescript": "latest"
   }
 }
