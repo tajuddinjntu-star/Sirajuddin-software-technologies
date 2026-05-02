@@ -25,7 +25,7 @@ export async function issueDownloadGrant(purchaseId: string) {
   userId: "system",
   action: "DOWNLOAD_LINK_USED",
   entityType: "Purchase",
-  entityId: grant.purchaseId,
+  entityId: "download",
 });
 
   return rawToken;
