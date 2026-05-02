@@ -17,9 +17,8 @@ export async function issueDownloadGrant(purchaseId: string) {
   });
 
   const purchase = await db.purchase.findUnique({
-    where: { id: purchaseId },
-    include: { software: true }
-  });
+  where: { id: purchaseId }
+});
 
   await createAuditLog({
   userId: "system",
