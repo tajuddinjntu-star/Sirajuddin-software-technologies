@@ -29,6 +29,7 @@ export async function ensureInvoiceForPurchase(input: {
       purchaseId: input.purchaseId,
       userId: input.userId,
       softwareId: input.softwareId,
+      status: "ISSUED",
       invoiceNumber,
       currency: input.currency,
       subtotalAmount: input.subtotalAmount,
