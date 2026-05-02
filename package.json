@@ -16,7 +16,7 @@
     "@prisma/client": "latest"
   },
   "devDependencies": {
-    "@types/nodes": "latest",
+    "@types/node": "latest",
     "prisma": "latest",
     "typescript": "latest"
   }
