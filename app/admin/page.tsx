@@ -318,7 +318,7 @@ export default async function AdminPage() {
           <table className="table">
             <thead><tr><th>Invoice</th><th>Customer</th><th>Software</th><th>Total</th><th>Status</th></tr></thead>
             <tbody>
-              {invoices.map((invoice) => (
+              {invoices.map((invoice: any) => (
                 <tr key={invoice.id}><td>{invoice.invoiceNumber}</td><td>{invoice.user.email}</td><td>{invoice.software.name}</td><td>{formatCurrency(invoice.totalAmount, invoice.currency)}</td><td>{invoice.status}</td></tr>
               ))}
             </tbody>
