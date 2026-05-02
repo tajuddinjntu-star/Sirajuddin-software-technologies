@@ -55,6 +55,9 @@ model Invoice {
   totalAmount   Int
   status        String   @default("ISSUED")
   issuedAt      DateTime @default(now())
+  receiptStatus     String?
+  receiptSentAt     DateTime?
+  lastReceiptError  String?
 }
 model AuditLog {
   id         String   @id @default(cuid())
