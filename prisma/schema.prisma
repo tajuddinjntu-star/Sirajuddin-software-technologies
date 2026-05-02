@@ -44,7 +44,14 @@ model Invoice {
   status        String   @default("ISSUED")
   issuedAt      DateTime @default(now())
 }
-
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  action     String
+  entityType String
+  entityId   String?
+  createdAt  DateTime @default(now())
+}
 model DownloadGrant {
   id         String   @id @default(cuid())
   purchaseId String
