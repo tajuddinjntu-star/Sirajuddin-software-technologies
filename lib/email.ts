@@ -23,7 +23,7 @@ export async function createEmailDispatch(input: {
       userId: input.userId,
       toEmail: input.toEmail,
       subject: input.subject,
-      template: input.templateKey,
+      templatekey: input.templateKey,
       status: "PREVIEW",
       
     }
