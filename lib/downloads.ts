@@ -54,11 +54,11 @@ export async function consumeDownloadGrant(rawToken: string) {
       data: { usedAt: now }
     }),
     db.purchase.update({
-      where: { id: grant.purchase.id },
+      where: { id: grant.purchaseId },
       data: {
         downloadCount: { increment: 1 },
         lastDownloadedAt: now,
-      }
+      },
     })
   ]);
 
