@@ -35,19 +35,9 @@ export async function issueDownloadGrant(purchaseId: string) {
 export async function consumeDownloadGrant(rawToken: string) {
   const tokenHash = hashToken(rawToken);
   const now = new Date();
-
-  const grant = await db.downloadGrant.findFirst({
-    where: { tokenHash },
-    include: {
-      purchase: {
-        include: {
-          software: true,
-          user: true
-        }
-      }
-    }
-  });
-
+ const grant = await db.downloadGrant.findFirst({
+  where: { tokenHash }
+});
   if (!grant) return { ok: false as const, reason: 'invalid' };
   if (grant.status !== 'ACTIVE') return { ok: false as const, reason: 'inactive' };
   if (grant.expiresAt < now) {
