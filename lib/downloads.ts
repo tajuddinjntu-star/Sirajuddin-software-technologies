@@ -65,7 +65,7 @@ export async function consumeDownloadGrant(rawToken: string) {
     userId: grant.purchase.userId,
     action: 'DOWNLOAD_LINK_USED',
     entityType: 'Purchase',
-    entityId: grant.purchase.id,
+    entityId: grant.purchaseId,
     meta: { softwareId: grant.purchase.softwareId }
   });
 
