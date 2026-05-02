@@ -16,7 +16,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        session.user.role = adminEmails.includes((user.email || '').toLowerCase()) ? 'ADMIN' : user.role;
+        (session.user as any).role = adminEmails.includes((user.email || "").toLowerCase()) ? "ADMIN" : "USER";
       }
       return session;
     },
