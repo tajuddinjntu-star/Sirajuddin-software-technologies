@@ -19,7 +19,6 @@ model User {
   purchases     Purchase[]
   invoices      Invoice[]
   auditLogs     AuditLog[]
-  emailDispatches EmailDispatch[]
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
 }
