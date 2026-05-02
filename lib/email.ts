@@ -27,6 +27,11 @@ export async function createEmailDispatch(input: {
       status: "PREVIEW",
       
     }
+    data: {
+  status: input.errorMessage ? "FAILED" : "SENT",
+  errorMessage: input.errorMessage,
+  sentAt: input.errorMessage ? null : now
+}
   });
 }
 
