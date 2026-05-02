@@ -342,7 +342,7 @@ export default async function AdminPage() {
           <table className="table">
             <thead><tr><th>Customer</th><th>Software</th><th>Status</th><th>License</th><th>Receipt</th><th>Invoice</th><th>Amount</th><th>Action</th></tr></thead>
             <tbody>
-              {orders.map((order) => (
+              {orders.map((order: any) => (
                 <tr key={order.id}>
                   <td>{order.user.email}</td>
                   <td>{order.software.name}</td>
