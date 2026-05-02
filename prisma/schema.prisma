@@ -46,18 +46,16 @@ model Purchase {
 }
 
 model Invoice {
-  id            String   @id @default(cuid())
-  purchaseId    String
-  userId        String
-  softwareId    String
-  invoiceNumber String
-  currency      String   @default("INR")
-  totalAmount   Int
-  status        String   @default("ISSUED")
-  issuedAt      DateTime @default(now())
+  id                String   @id @default(cuid())
+  purchaseId        String
+  invoiceNumber     String
+  currency          String   @default("INR")
+  totalAmount       Int
+  status            String   @default("ISSUED")
   receiptStatus     String?
   receiptSentAt     DateTime?
   lastReceiptError  String?
+  issuedAt          DateTime @default(now())
 }
 model AuditLog {
   id         String   @id @default(cuid())
