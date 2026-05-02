@@ -96,15 +96,12 @@ model Purchase {
 model DownloadGrant {
   id          String      @id @default(cuid())
   purchaseId  String
-  tokenHash   String      @unique
+  tokenHash   String      
   expiresAt   DateTime
   usedAt      DateTime?
   createdAt   DateTime    @default(now())
-  status      String
-  purchase    Purchase    @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
-
-  @@index([purchaseId, expiresAt])
-}
+  status      String      @default("ACTIVE")
+  }
 
 model Invoice {
   id              String        @id @default(cuid())
