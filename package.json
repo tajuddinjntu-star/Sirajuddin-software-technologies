@@ -6,19 +6,18 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
+    "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
-    "@prisma/client": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
+    "prisma": "latest",
     "typescript": "latest"
-    "prisma": "latest"
   }
 }
