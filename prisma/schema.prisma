@@ -43,6 +43,9 @@ model Purchase {
   downloadCount    Int      @default(0)
   lastDownloadedAt DateTime?
   createdAt        DateTime @default(now())
+receiptStatus     String?
+receiptSentAt     DateTime?
+lastReceiptError  String?
 }
 
 model Invoice {
