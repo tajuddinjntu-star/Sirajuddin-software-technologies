@@ -77,7 +77,7 @@ export async function markReceiptAsSent(input: { purchaseId: string; providerId?
       where: { id: dispatch.id },
       data: {
         status: input.errorMessage ? 'FAILED' : 'SENT',
-        errorMessage: input.errorMessage,
+        lastError: input.errorMessage,
         sentAt: input.errorMessage ? null : now
       }
     });
