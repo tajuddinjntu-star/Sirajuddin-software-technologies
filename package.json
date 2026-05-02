@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "latest",
     "@prisma/client": "latest",
     "next": "latest",
+    "next-auth": "latest",
     "react": "latest",
     "react-dom": "latest"
-    "next-auth": "latest",
-    "@auth/prisma-adapter": "latest"
-},
+  },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
