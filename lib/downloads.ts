@@ -51,14 +51,13 @@ export async function consumeDownloadGrant(rawToken: string) {
   await db.$transaction([
     db.downloadGrant.update({
       where: { id: grant.id },
-      data: { usedAt: now, status: 'USED' }
+      data: { usedAt: now }
     }),
     db.purchase.update({
       where: { id: grant.purchase.id },
       data: {
         downloadCount: { increment: 1 },
         lastDownloadedAt: now,
-        grantedAt: grant.purchase.grantedAt || now
       }
     })
   ]);
