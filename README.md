@@ -117,7 +117,7 @@ Fill these in your `.env` file:
 ## Notes
 
 This is a strong commercial starter for your developer or agency to continue from. It includes the right primitives for license issuance, invoicing, delivery gating, and receipt operations, but it does **not** yet include:
-
+update  deployment
 - actual binary file hosting
 - encrypted license activation with device binding
 - real email provider integration
