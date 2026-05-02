@@ -13,7 +13,6 @@ export async function createEmailDispatch(input: {
   previewText?: string;
   provider?: string;
   status?: DispatchStatus;
-  providerId?: string;
   errorMessage?: string;
   sentAt?: Date;
 }) {
@@ -78,7 +77,6 @@ export async function markReceiptAsSent(input: { purchaseId: string; providerId?
       where: { id: dispatch.id },
       data: {
         status: input.errorMessage ? 'FAILED' : 'SENT',
-        providerId: input.providerId,
         errorMessage: input.errorMessage,
         sentAt: input.errorMessage ? null : now
       }
