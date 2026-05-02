@@ -21,10 +21,10 @@ model EmailDispatch {
   toEmail    String
   subject    String
   templateKey String?
-  status     String   @default("QUEUED")
-  errorMessage String?
-  sentAt     DateTime?
-  createdAt  DateTime @default(now())
+  status       String   @default("QUEUED")
+errorMessage String?
+sentAt       DateTime?
+createdAt    DateTime @default(now())
 }
 model Software {
   id          String   @id @default(cuid())
