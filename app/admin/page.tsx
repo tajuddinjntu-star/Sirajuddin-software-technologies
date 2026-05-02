@@ -396,3 +396,21 @@ export default async function AdminPage() {
     </main>
   );
 }
+// app/admin/page.tsx
+import { db } from "@/lib/db";
+
+export default async function AdminPage() {
+  const purchases = await db.purchase.findMany();
+
+  return (
+    <div style={{ padding: 40 }}>
+      <h1>Admin Dashboard</h1>
+
+      {purchases.map(p => (
+        <div key={p.id}>
+          Purchase ID: {p.id} — Status: {p.status}
+        </div>
+      ))}
+    </div>
+  );
+}
