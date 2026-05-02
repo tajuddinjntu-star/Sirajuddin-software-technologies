@@ -30,3 +30,15 @@ export default function ProductsPage() {
     </main>
   );
 }
+<button onClick={async () => {
+  await fetch("/api/purchase", {
+    method: "POST",
+    body: JSON.stringify({
+      userId: "demo-user",
+      softwareId: "weldwise",
+    }),
+  });
+  alert("Purchase Created");
+}}>
+  Buy Now
+</button>
