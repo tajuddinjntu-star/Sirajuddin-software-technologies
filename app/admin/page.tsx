@@ -330,7 +330,7 @@ export default async function AdminPage() {
           <table className="table">
             <thead><tr><th>To</th><th>Subject</th><th>Template</th><th>Status</th><th>Provider</th></tr></thead>
             <tbody>
-              {emailDispatches.map((dispatch) => (
+              {emailDispatches.map((dispatch: any) => (
                 <tr key={dispatch.id}><td>{dispatch.toEmail}</td><td>{dispatch.subject}</td><td>{dispatch.templateKey}</td><td>{dispatch.status}</td><td>{dispatch.provider}</td></tr>
               ))}
             </tbody>
