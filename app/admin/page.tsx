@@ -293,7 +293,7 @@ export default async function AdminPage() {
             <table className="table">
               <thead><tr><th>Name</th><th>Delivery</th><th>Currency</th></tr></thead>
               <tbody>
-                {products.map((product) => (
+                {products.map((product: any) => (
                   <tr key={product.id}><td>{product.name}</td><td>{product.deliveryMethod}</td><td>{product.currency}</td></tr>
                 ))}
               </tbody>
