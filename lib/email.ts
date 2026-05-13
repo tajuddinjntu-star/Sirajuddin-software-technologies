@@ -16,17 +16,22 @@ export async function createEmailDispatch(input: {
   errorMessage?: string;
   sentAt?: Date;
 }) {
-  return db.emailDispatch.create({
-    data: {
-      purchaseId: input.purchaseId,
-      invoiceId: input.invoiceId,
-      userId: input.userId,
-      toEmail: input.toEmail,
-      subject: input.subject,
-      templateKey: input.templateKey || "receipt",
-      status: "PREVIEW",
-      
-    }
+return db.emailDispatch.create({
+  data: {
+    purchaseId: input.purchaseId,
+    invoiceId: input.invoiceId,
+    userId: input.userId,
+
+    toEmail: input.toEmail,
+    subject: input.subject,
+
+    templateKey: input.templateKey || "receipt",
+
+    status: input.errorMessage ? "FAILED" : "SENT",
+    errorMessage: input.errorMessage || null,
+    sentAt: input.errorMessage ? null : new Date(),
+  },
+});
     data: {
   status: input.errorMessage ? "FAILED" : "SENT",
   errorMessage: input.errorMessage,
