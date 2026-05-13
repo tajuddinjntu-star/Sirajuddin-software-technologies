@@ -18,17 +18,12 @@ export async function createEmailDispatch(input: {
 }) {
   return db.emailDispatch.create({
   data: {
-    purchaseId: input.purchaseId,
-    invoiceId: input.invoiceId,
-    userId: input.userId,
-
-    toEmail: input.toEmail,
-    subject: input.subject,
-
     status: input.errorMessage ? "FAILED" : "SENT",
     sentAt: input.errorMessage ? null : new Date(),
   },
-});   
+});
+}
+
 export async function queueReceiptEmail(input: {
   purchaseId: string;
   invoiceId?: string | null;
