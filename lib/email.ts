@@ -28,9 +28,11 @@ export async function createEmailDispatch(input: {
     sentAt: null,
   },
 });
-    data: {
-  status: input.errorMessage ? "FAILED" : "SENT",
-  sentAt: input.errorMessage ? null : new Date(),
+   return db.emailDispatch.create({
+  data: {
+    status: input.errorMessage ? "FAILED" : "SENT",
+    sentAt: input.errorMessage ? null : new Date(),
+  },
 });
 export async function queueReceiptEmail(input: {
   purchaseId: string;
