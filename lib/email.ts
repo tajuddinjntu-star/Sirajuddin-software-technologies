@@ -83,10 +83,12 @@ export async function markReceiptAsSent(input: { purchaseId: string; providerId?
 const purchase = await db.purchase.findUnique({
   where: { id: input.purchaseId },
 });
-  if (purchase?.invoice && !input.errorMessage) {
-    await db.invoice.update({
-      where: { id: purchase.invoice.id },
-      data: { receiptSentAt: now }
-    });
+  if (purchase && !input.errorMessage && input.invoiceId) {
+  await db.invoice.update({
+    where: { id: input.invoiceId },
+    data: { receiptSentAt: new Date() }
+  })
+}
+  
   }
 }
