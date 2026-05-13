@@ -30,7 +30,6 @@ return db.emailDispatch.create({
   },
     data: {
   status: input.errorMessage ? "FAILED" : "SENT",
-  lastError: input.errorMessage || null,
   sentAt: input.errorMessage ? null : new Date(),
 });
 export async function queueReceiptEmail(input: {
