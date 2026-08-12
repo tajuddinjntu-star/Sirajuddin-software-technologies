@@ -26,6 +26,7 @@ export async function createEmailDispatch(input: {
     templateKey: input.templateKey || "receipt",
     status: input.errorMessage ? "FAILED" : "SENT",
     sentAt: input.errorMessage ? null : new Date(),
+  },
   });
 }
 export async function queueReceiptEmail(input: {
