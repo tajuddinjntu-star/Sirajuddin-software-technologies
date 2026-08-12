@@ -91,4 +91,3 @@ const purchase = await db.purchase.findUnique({
 }
   
   }
-}
